@@ -1,0 +1,12 @@
+use std::io::{self, Write};
+
+fn main() {
+    let stdin = io::stdin();
+    let mut stdout = io::stdout();
+    let mut input = String::new();
+
+    stdin.read_line(&mut input).expect("Failed to read line");
+    let n: i32 = input.trim().parse().expect("Failed to parse input");
+
+    writeln!(stdout, "{} {}", n / 10, n % 10).expect("Failed to write to stdout");
+}
