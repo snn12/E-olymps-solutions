@@ -1,0 +1,13 @@
+# Importing the sys module to read from standard input
+import sys
+
+# Reading input from the user
+s = sys.stdin.readline()
+
+# Checking if the input is not None
+if s:
+    # Trimming whitespaces from both ends and leading zeros
+    s = s.strip().lstrip('0')
+    # If the length of the string is 2, print the characters separated by space
+    if len(s) == 2:
+        print(f"{s[0]} {s[1]}")
