@@ -1,0 +1,26 @@
+use std::io;
+
+fn main() {
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let n: i64 = input.trim().parse().expect("Invalid input");
+
+    let mut answer: i64 = 0;
+    let mut m: i64 = 0;
+
+    while m * m < n {
+        m += 1;
+    }
+
+    m -= 1;
+
+    answer += m * (m + 1) * 2;
+    answer += (n - m * m) * 2;
+    answer += 1;
+
+    if n - m * m > m {
+        answer += 1;
+    }
+
+    println!("{}", answer);
+}
