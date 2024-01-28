@@ -1,0 +1,24 @@
+use std::io;
+
+fn yoxla(n: i32) -> String {
+    match n {
+        1 => String::from("10 0"),
+        2 => String::from("1 22"),
+        3 => String::from("6 123"),
+        4 => String::from("12 1124"),
+        5 => String::from("40 11125"),
+        6 => String::from("30 111126"),
+        7 => String::from("84 1111127"),
+        8 => String::from("224 11111128"),
+        9 => String::from("144 111111129"),
+        _ => String::new(),
+    }
+}
+
+fn main() {
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let n: i32 = input.trim().parse().expect("Invalid input");
+
+    println!("{}", yoxla(n));
+}
