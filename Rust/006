@@ -1,0 +1,40 @@
+use std::io::{self, BufRead};
+
+fn recurs(d: &mut Vec<i32>, c: &Vec<i32>, k: i32, s: i32, max: &mut i32) {
+    let mut f = 0;
+    for j in 0..d.len() {
+        if d[j] >= k {
+            let q = (d[j] - k + 1) * c[j];
+            f = d[j];
+            d[j] = 0;
+            recurs(d, c, k + 1, s + q, max);
+            d[j] = f;
+            f = 1;
+        }
+    }
+    if f == 0 && *max < s {
+        *max = s;
+    }
+}
+
+fn main() {
+    let stdin = io::stdin();
+    let mut lines = stdin.lock().lines();
+    
+    let n: i32 = lines.next().unwrap().unwrap().trim().parse().unwrap();
+    
+    let mut d = Vec::new();
+    let mut c = Vec::new();
+    
+    for _ in 0..n {
+        let values: Vec<i32> = lines.next().unwrap().unwrap().split_whitespace()
+            .map(|s| s.parse().unwrap()).collect();
+        d.push(values[0]);
+        c.push(values[1]);
+    }
+    
+    let mut max = 0;
+    recurs(&mut d, &c, 1, 0, &mut max);
+    
+    println!("{}", max);
+}
