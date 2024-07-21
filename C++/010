@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+    double vedre = 0.0;
+    int gun = 0;
+    
+    // Reading input from the user
+    int say;
+    std::cin >> say;
+    
+    int i = say;
+
+    // Loop until vedre is greater than 0.5
+    while (vedre <= 0.5) {
+        vedre += 1.0 / i;
+        gun += 1;
+        i -= 1;
+    }
+
+    std::cout << (say - gun + 1) << std::endl;
+
+    return 0;
+}
