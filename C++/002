@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    while (true) {
+        int n;
+        std::cin >> n;
+        if (0 <= n && n <= 2 * 1000000000) {
+            std::cout << std::to_string(n).length() << std::endl;
+            break;
+        }
+    }
+    return 0;
+}
